@@ -1,5 +1,12 @@
 <div style="border: 1px solid">
     <p>event-page works!</p>
-    <p>id {{ event?.id }}</p>
-    <p>name {{ event?.name }}</p>
+
+    <ng-container *ngIf="event else noEventData">
+        <p>id {{ event.id }}</p>
+        <p>name {{ event.name }}</p>
+    </ng-container>
+
+    <ng-template #noEventData>
+        <p>event not found</p>
+    </ng-template>
 </div>
