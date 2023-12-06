@@ -1,0 +1,9 @@
+<div style="border: 1px solid;">
+    <p>events-page works!</p>
+
+    <ng-container *ngFor="let eventID of eventIDs">
+        <div>
+            <a routerLink="/event/{{eventID}}">event {{ eventID }}</a>
+        </div>
+    </ng-container>
+</div>

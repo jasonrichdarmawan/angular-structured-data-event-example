@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-event-page',
@@ -6,8 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-page.component.scss']
 })
 export class EventPageComponent implements OnInit {
+  id?: string;
 
-  constructor() { }
+  constructor(route: ActivatedRoute) {
+    this.id = route.snapshot.paramMap.get("id") ?? undefined;
+  }
 
   ngOnInit(): void {
   }

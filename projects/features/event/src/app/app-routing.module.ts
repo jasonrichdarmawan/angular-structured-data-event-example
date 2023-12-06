@@ -4,13 +4,17 @@ import { RouterModule, Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'event/1',
+    redirectTo: 'events',
     pathMatch: 'full',
+  },
+  {
+    path: 'events',
+    loadChildren: () => import("./features/events-feature/events-feature.module").then(m => m.EventsFeatureModule),
   },
   {
     path: 'event',
     loadChildren: () => import("./features/event-feature/event-feature.module").then(m => m.EventFeatureModule)
-  }
+  },
 ];
 
 @NgModule({
