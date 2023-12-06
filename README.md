@@ -5,6 +5,61 @@ npx ng build --configuration production
 npx firebase-tools deploy
 ```
 
+# Clean Architecture
+
+Clean Architecture is a way to let back end do their stuff and front end also do their own stuff.
+1. The data layer can change as the back end like.
+
+GetEventByIdResponseBody.ts
+```
+export interface GetEventByIdResponseBody {
+    id?: string
+    name?: string
+
+    description?: string
+}
+```
+
+2. The domain layer can change as the front end like.
+
+EventData.ts
+```
+export interface EventData {
+    id: string;
+    name: string;
+}
+```
+
+notice that the domain layer:
+1. do not need the `description` key.
+2. the keys do not have `optional` value. 
+
+   this is mandatory. this is because what is inside `EvenData` must be exist and not be optional, or expected when things do not go wrong, it will be used for rendering the presentation layer or to execute the business logic. 
+   
+   although things can happen i.e. server do not response, etc. it's the front end job to handle such cases.
+
+event-page.component.ts
+```
+export class EventPageComponent implements OnInit {
+  event?: EventData;
+
+  constructor(
+    route: ActivatedRoute,
+    getEventById: GetEventByIdService,
+  ) {
+    let id = route.snapshot.paramMap.get("id") ?? undefined;
+
+    if (id == undefined) { return }
+
+    this.event = getEventById.call(id)
+  }
+
+  ngOnInit(): void {
+  }
+
+}
+```
+
 # topoint-org
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.11.

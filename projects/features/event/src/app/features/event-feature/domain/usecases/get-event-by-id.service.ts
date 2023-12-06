@@ -7,7 +7,7 @@ export class GetEventByIdService {
 
   constructor(private repository: EventRepositoryService) { }
 
-  call(id: string): EventData {
+  call(id: string): EventData | undefined {
     let response = this.repository.getEventById(id);
 
     return response
