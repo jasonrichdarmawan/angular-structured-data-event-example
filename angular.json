@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-structured-data-event-example": {
+    "topoint-org": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-structured-data-event-example",
+            "outputPath": "dist/topoint-org",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "angular-structured-data-event-example:build:production"
+              "browserTarget": "topoint-org:build:production"
             },
             "development": {
-              "browserTarget": "angular-structured-data-event-example:build:development"
+              "browserTarget": "topoint-org:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-structured-data-event-example:build"
+            "browserTarget": "topoint-org:build"
           }
         },
         "test": {
@@ -210,5 +210,5 @@
       }
     }
   },
-  "defaultProject": "angular-structured-data-event-example"
+  "defaultProject": "topoint-org"
 }
