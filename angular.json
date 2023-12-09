@@ -213,7 +213,7 @@
     "@features/experience": {
       "projectType": "library",
       "root": "projects/features/experience",
-      "sourceRoot": "projects/features/experience/src",
+      "sourceRoot": "projects/features/experience",
       "prefix": "lib",
       "architect": {
         "build": {
@@ -234,7 +234,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/features/experience/src/test.ts",
+            "main": "projects/features/experience/test.ts",
             "tsConfig": "projects/features/experience/tsconfig.spec.json",
             "karmaConfig": "projects/features/experience/karma.conf.js"
           }

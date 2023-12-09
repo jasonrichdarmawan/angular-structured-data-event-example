@@ -6,7 +6,6 @@ import { GetEventByIdService } from '../../../domain/usecases/get-event-by-id/ge
 import { EventRepositoryService } from '../../../data/repositories/event-repository.service';
 import { EventRemoteDataSourceService } from '../../../data/datasources/event-remote-data-source.service';
 import { AsPipeModule } from '@common/pipes/as-pipe';
-import { AddEventToHeadService } from '../../../domain/usecases/add-event-to-head/add-event-to-head.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +20,6 @@ import { AddEventToHeadService } from '../../../domain/usecases/add-event-to-hea
     EventRemoteDataSourceService,
     EventRepositoryService,
     GetEventByIdService,
-    AddEventToHeadService
   ],
 })
 export class EventPageModule { }

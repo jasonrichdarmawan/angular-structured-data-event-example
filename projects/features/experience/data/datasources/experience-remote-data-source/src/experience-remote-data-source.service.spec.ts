@@ -6,7 +6,11 @@ describe('ExperienceRemoteDataSourceService', () => {
   let service: ExperienceRemoteDataSourceService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        ExperienceRemoteDataSourceService
+      ]
+    });
     service = TestBed.inject(ExperienceRemoteDataSourceService);
   });
 

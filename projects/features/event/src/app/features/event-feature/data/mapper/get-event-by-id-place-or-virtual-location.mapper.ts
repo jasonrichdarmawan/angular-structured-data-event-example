@@ -1,7 +1,7 @@
 import { PlaceOrVirtualLocation } from "../../domain/entities/place-or-virtual-location";
 import { GetEventByIdPlaceOrVirtualLocation } from "../models/get-event-by-id-response-body";
-import { GetEventByIdPlaceResponseBodyMapper } from "./get-event-by-id-place-response-body-mapper";
-import { GetEventByIdVirtualLocationResponseBodyMapper } from "./get-event-by-id-virtual-location-response-body-mapper";
+import { GetEventByIdPlaceResponseBodyMapper } from "./get-event-by-id-place-response-body.mapper";
+import { GetEventByIdVirtualLocationResponseBodyMapper } from "./get-event-by-id-virtual-location-response-body.mapper";
 
 export namespace GetEventByIdPlaceOrVirtualLocationMapper {
     export function toPlaceOrVirtualLocationArray(model: GetEventByIdPlaceOrVirtualLocation | GetEventByIdPlaceOrVirtualLocation[]): PlaceOrVirtualLocation[] | undefined {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { EventRemoteDataSourceService } from '../datasources/event-remote-data-source.service';
 import { EventData } from '../../domain/entities/event-data';
-import { GetEventByIdResponseBodyMapper } from '../mapper/get-event-by-id-response-body-mapper';
+import { GetEventByIdResponseBodyMapper } from '../mapper/get-event-by-id-response-body.mapper';
 
 @Injectable()
 export class EventRepositoryService {

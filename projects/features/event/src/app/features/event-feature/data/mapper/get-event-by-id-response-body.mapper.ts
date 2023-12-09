@@ -5,9 +5,9 @@ import { Offer } from "../../domain/entities/offer";
 import { Organization } from "../../domain/entities/organization";
 import { Person } from "../../domain/entities/person";
 import { GetEventByIdPersonResponseBody, GetEventByIdResponseBody } from "../models/get-event-by-id-response-body";
-import { GetEventByIdOfferResponseBodyMapper } from "./get-event-by-id-offer-response-body-mapper";
-import { GetEventbyIdOrganizationResponseBodyMapper } from "./get-event-by-id-organization-response-body-mapper";
-import { GetEventByIdPlaceOrVirtualLocationMapper } from "./get-event-by-id-place-or-virtual-location-mapper";
+import { GetEventByIdOfferResponseBodyMapper } from "./get-event-by-id-offer-response-body.mapper";
+import { GetEventbyIdOrganizationResponseBodyMapper } from "./get-event-by-id-organization-response-body.mapper";
+import { GetEventByIdPlaceOrVirtualLocationMapper } from "./get-event-by-id-place-or-virtual-location.mapper";
 
 export namespace GetEventByIdResponseBodyMapper {
     export function toEventData(model: GetEventByIdResponseBody): EventData | undefined {
