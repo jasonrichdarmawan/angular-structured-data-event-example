@@ -1,24 +1,24 @@
 <div style="border: 1px solid; padding: 8px;">
     <p>event-page works!</p>
 
-    <ng-container *ngIf="event else noEventData">
-        <p>id {{ event.id }}</p>
-        <p>name {{ event.name }}</p>
-        <p *ngIf="event.description">description {{ event.description }}</p>
-        <p>startDate {{ event.startDate | date:'long' }}</p>
-        <p>endDate {{ event.endDate | date:'long' }} </p>
+    <ng-container *ngIf="eventData else noEventData">
+        <p>id {{ eventData.id }}</p>
+        <p>name {{ eventData.name }}</p>
+        <p *ngIf="eventData.description">description {{ eventData.description }}</p>
+        <p>startDate {{ eventData.startDate | date:'long' }}</p>
+        <p>endDate {{ eventData.endDate | date:'long' }} </p>
 
-        <p *ngIf="event.eventAttendanceMode">eventAttendanceMode {{ event.eventAttendanceMode }}</p>
-        <p *ngIf="event.eventStatus">eventStatus {{ event.eventStatus }}</p>
+        <p *ngIf="eventData.eventAttendanceMode">eventAttendanceMode {{ eventData.eventAttendanceMode }}</p>
+        <p *ngIf="eventData.eventStatus">eventStatus {{ eventData.eventStatus }}</p>
         
-        <div style="border: 1px solid; padding: 8px;" *ngIf="event.image">
-            <ng-container *ngFor="let img of event.image">
+        <div style="border: 1px solid; padding: 8px;" *ngIf="eventData.image">
+            <ng-container *ngFor="let img of eventData.image">
                 <img [src]="img">
             </ng-container>
         </div>
 
-        <div style="border: 1px solid; padding: 8px;" *ngIf="event.offers">
-            <ng-container *ngFor="let item of event.offers">
+        <div style="border: 1px solid; padding: 8px;" *ngIf="eventData.offers">
+            <ng-container *ngFor="let item of eventData.offers">
                 <div style="border: 1px solid; padding: 8px">
                     <p>offer type {{ item["@type"] }}</p>
                     <p>offer availability {{ item.availability }}</p>
@@ -30,21 +30,21 @@
             </ng-container>
         </div>
 
-        <div style="border: 1px solid; padding: 8px" *ngIf="event.organizer">
-            <p>organizer type {{ event.organizer['@type'] }}</p>
-            <p>organizer name {{ event.organizer.name }}</p>
-            <ng-container *ngIf="event.organizer['@type'] === 'Organization'">
-                <p>organizer url {{ (event.organizer | as : Organization).url }}</p>
+        <div style="border: 1px solid; padding: 8px" *ngIf="eventData.organizer">
+            <p>organizer type {{ eventData.organizer['@type'] }}</p>
+            <p>organizer name {{ eventData.organizer.name }}</p>
+            <ng-container *ngIf="eventData.organizer['@type'] === 'Organization'">
+                <p>organizer url {{ (eventData.organizer | as : Organization).url }}</p>
             </ng-container>
         </div>
 
-        <div style="border: 1px solid; padding: 8px" *ngIf="event.performer">
-            <p>performer type {{ event.performer['@type'] }}</p>
-            <p>performer name {{ event.performer.name }}</p>
+        <div style="border: 1px solid; padding: 8px" *ngIf="eventData.performer">
+            <p>performer type {{ eventData.performer['@type'] }}</p>
+            <p>performer name {{ eventData.performer.name }}</p>
         </div>
 
-        <div style="border: 1px solid; padding: 8px" *ngIf="event.previousStartDate">
-            <ng-container *ngFor="let item of event.previousStartDate">
+        <div style="border: 1px solid; padding: 8px" *ngIf="eventData.previousStartDate">
+            <ng-container *ngFor="let item of eventData.previousStartDate">
                 <p>previousDate {{ item }}</p>
             </ng-container>
         </div>
