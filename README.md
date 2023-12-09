@@ -1,6 +1,7 @@
 # How to deploy to firebase
 
 ```
+npm run build-library
 npx ng build --configuration production
 npx firebase-tools deploy
 ```

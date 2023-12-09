@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "build-library": "ng build @common/pipes && ng build @features/experience",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
