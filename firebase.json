@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/topoint-org",
+    "public": "dist/event-topoint-org",
     "ignore": [
       "firebase.json",
       "**/.*",

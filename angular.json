@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "topoint-org": {
+    "event-topoint-org": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/topoint-org",
+            "outputPath": "dist/event-topoint-org",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -73,10 +73,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "topoint-org:build:production"
+              "browserTarget": "event-topoint-org:build:production"
             },
             "development": {
-              "browserTarget": "topoint-org:build:development"
+              "browserTarget": "event-topoint-org:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "topoint-org:build"
+            "browserTarget": "event-topoint-org:build"
           }
         },
         "test": {
@@ -273,5 +273,5 @@
       }
     }
   },
-  "defaultProject": "topoint-org"
+  "defaultProject": "event-topoint-org"
 }
