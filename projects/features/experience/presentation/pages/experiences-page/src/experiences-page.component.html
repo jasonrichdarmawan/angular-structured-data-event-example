@@ -1,0 +1,9 @@
+<div style="border: 1px solid;">
+    <p>experiences-page works!</p>
+
+    <ng-container *ngFor="let experienceID of experienceIDs">
+        <div>
+            <a routerLink="/experience/{{experienceID}}">experience {{ experienceID }}</a>
+        </div>
+    </ng-container>
+</div>

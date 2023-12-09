@@ -1,0 +1,22 @@
+<div style="border: 1px solid;">
+    <p>experience-page works!</p>
+
+    <ng-container *ngIf="experienceData else noExperienceData">
+        <p>id {{ experienceData.id }}</p>
+        <p>name {{ experienceData.name }}</p>
+
+        <ng-container *ngIf="experienceData.events else noEventData">
+            <ng-container *ngFor="let eventID of experienceData.events">
+                <a routerLink="/event/{{eventID}}">event {{ eventID }}</a>
+            </ng-container>
+        </ng-container>
+
+        <ng-template #noEventData>
+            <p>event not found</p>
+        </ng-template>
+    </ng-container>
+
+    <ng-template #noExperienceData>
+        <p>experience not found</p>
+    </ng-template>
+</div>

@@ -2,6 +2,14 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "paths": {
+      "@features/experience": [
+        "dist/features/experience"
+      ],
+      "@features/experience/*": [
+        "dist/features/experience/*"
+      ]
+    },
     "outDir": "./out-tsc/app",
     "types": []
   },

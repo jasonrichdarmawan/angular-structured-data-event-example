@@ -5,8 +5,7 @@ import { EventPageRoutingModule } from './event-page-routing.module';
 import { GetEventByIdService } from '../../../domain/usecases/get-event-by-id.service';
 import { EventRepositoryService } from '../../../data/repositories/event-repository.service';
 import { EventRemoteDataSourceService } from '../../../data/datasources/event-remote-data-source.service';
-
-
+import { AsPipeModule } from 'projects/features/event/src/app/pipes/AsPipe/as-pipe.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +13,8 @@ import { EventRemoteDataSourceService } from '../../../data/datasources/event-re
   ],
   imports: [
     CommonModule,
-    EventPageRoutingModule
+    EventPageRoutingModule,
+    AsPipeModule,
   ],
   providers: [
     EventRemoteDataSourceService,

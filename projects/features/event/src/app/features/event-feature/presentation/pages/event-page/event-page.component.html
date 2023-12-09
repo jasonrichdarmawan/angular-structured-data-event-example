@@ -1,9 +1,53 @@
-<div style="border: 1px solid">
+<div style="border: 1px solid; padding: 8px;">
     <p>event-page works!</p>
 
     <ng-container *ngIf="event else noEventData">
         <p>id {{ event.id }}</p>
         <p>name {{ event.name }}</p>
+        <p *ngIf="event.description">description {{ event.description }}</p>
+        <p>startDate {{ event.startDate | date:'long' }}</p>
+        <p>endDate {{ event.endDate | date:'long' }} </p>
+
+        <p *ngIf="event.eventAttendanceMode">eventAttendanceMode {{ event.eventAttendanceMode }}</p>
+        <p *ngIf="event.eventStatus">eventStatus {{ event.eventStatus }}</p>
+        
+        <div style="border: 1px solid; padding: 8px;" *ngIf="event.image">
+            <ng-container *ngFor="let img of event.image">
+                <img [src]="img">
+            </ng-container>
+        </div>
+
+        <div style="border: 1px solid; padding: 8px;" *ngIf="event.offers">
+            <ng-container *ngFor="let item of event.offers">
+                <div style="border: 1px solid; padding: 8px">
+                    <p>offer type {{ item["@type"] }}</p>
+                    <p>offer availability {{ item.availability }}</p>
+                    <p>offer price {{ item.price }} </p>
+                    <p>offer priceCurrency {{ item.priceCurrency }}</p>
+                    <p>offer validFrom {{ item.validFrom }}</p>
+                    <p>offer url {{ item.url }}</p>
+                </div>
+            </ng-container>
+        </div>
+
+        <div style="border: 1px solid; padding: 8px" *ngIf="event.organizer">
+            <p>organizer type {{ event.organizer['@type'] }}</p>
+            <p>organizer name {{ event.organizer.name }}</p>
+            <ng-container *ngIf="event.organizer['@type'] === 'Organization'">
+                <p>organizer url {{ (event.organizer | as : Organization).url }}</p>
+            </ng-container>
+        </div>
+
+        <div style="border: 1px solid; padding: 8px" *ngIf="event.performer">
+            <p>performer type {{ event.performer['@type'] }}</p>
+            <p>performer name {{ event.performer.name }}</p>
+        </div>
+
+        <div style="border: 1px solid; padding: 8px" *ngIf="event.previousStartDate">
+            <ng-container *ngFor="let item of event.previousStartDate">
+                <p>previousDate {{ item }}</p>
+            </ng-container>
+        </div>
     </ng-container>
 
     <ng-template #noEventData>
