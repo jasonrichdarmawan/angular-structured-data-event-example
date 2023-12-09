@@ -8,8 +8,8 @@ import { GetEventByIdOfferResponseBodyMapper } from "./get-event-by-id-offer-res
 import { GetEventbyIdOrganizationResponseBodyMapper } from "./get-event-by-id-organization-response-body-mapper";
 import { GetEventByIdPlaceOrVirtualLocationMapper } from "./get-event-by-id-place-or-virtual-location-mapper";
 
-export class GetEventByIdResponseBodyMapper {
-    static toEventData(model: GetEventByIdResponseBody): EventData | undefined {
+export namespace GetEventByIdResponseBodyMapper {
+    export function toEventData(model: GetEventByIdResponseBody): EventData | undefined {
         if (
             model.id === undefined ||
             model.location === undefined ||
@@ -33,12 +33,12 @@ export class GetEventByIdResponseBodyMapper {
 
         let eventAttendanceMode: EventAttendanceModeEnumeration | undefined;
         if (model.eventAttendanceMode !== undefined) {
-            eventAttendanceMode = this.toEventAttendanceMode(model.eventAttendanceMode);
+            eventAttendanceMode = toEventAttendanceMode(model.eventAttendanceMode);
         }
 
         let eventStatus: EventStatusType | undefined;
         if (model.eventStatus !== undefined) {
-            eventStatus = this.toEventStatus(model.eventStatus);
+            eventStatus = toEventStatus(model.eventStatus);
         }
 
         let organizer: Organization | undefined;
@@ -48,7 +48,7 @@ export class GetEventByIdResponseBodyMapper {
 
         let previousStartDate: string[] | undefined;
         if (model.previousStartDate !== undefined) {
-            previousStartDate = this.toArray(model.previousStartDate);
+            previousStartDate = toArray(model.previousStartDate);
         }
 
         let result: EventData = {
@@ -80,7 +80,7 @@ export class GetEventByIdResponseBodyMapper {
         return result;
     }
 
-    static toEventAttendanceMode(model: string): EventAttendanceModeEnumeration | undefined {
+    function toEventAttendanceMode(model: string): EventAttendanceModeEnumeration | undefined {
         let result: EventAttendanceModeEnumeration
 
         switch (model) {
@@ -101,7 +101,7 @@ export class GetEventByIdResponseBodyMapper {
         return result;
     }
 
-    static toEventStatus(model: string): EventStatusType | undefined {
+    function toEventStatus(model: string): EventStatusType | undefined {
         let result: EventStatusType
         
         switch (model) {
@@ -128,7 +128,7 @@ export class GetEventByIdResponseBodyMapper {
         return result;
     }
 
-    static toArray(model: any | any[]): string[] {
+    function toArray(model: any | any[]): string[] {
         return ([] as any[]).concat(model);
     }
 }

@@ -2,8 +2,8 @@ import { Place } from "../../domain/entities/place"
 import { GetEventByIdPlaceResponseBody } from "../models/get-event-by-id-response-body"
 import { GetEventByIdPlacePostalAddressResponseBodyMapper } from "./get-event-by-id-place-postal-address-response-body-mapper"
 
-export class GetEventByIdPlaceResponseBodyMapper {
-    static toPlace(model: GetEventByIdPlaceResponseBody): Place | undefined {
+export namespace GetEventByIdPlaceResponseBodyMapper {
+    export function toPlace(model: GetEventByIdPlaceResponseBody): Place | undefined {
         if (
             model.name === undefined ||
             model.address === undefined

@@ -3,8 +3,8 @@ import { GetEventByIdPlaceOrVirtualLocation } from "../models/get-event-by-id-re
 import { GetEventByIdPlaceResponseBodyMapper } from "./get-event-by-id-place-response-body-mapper";
 import { GetEventByIdVirtualLocationResponseBodyMapper } from "./get-event-by-id-virtual-location-response-body-mapper";
 
-export class GetEventByIdPlaceOrVirtualLocationMapper {
-    static toPlaceOrVirtualLocationArray(model: GetEventByIdPlaceOrVirtualLocation | GetEventByIdPlaceOrVirtualLocation[]): PlaceOrVirtualLocation[] | undefined {
+export namespace GetEventByIdPlaceOrVirtualLocationMapper {
+    export function toPlaceOrVirtualLocationArray(model: GetEventByIdPlaceOrVirtualLocation | GetEventByIdPlaceOrVirtualLocation[]): PlaceOrVirtualLocation[] | undefined {
         let location: PlaceOrVirtualLocation[];
         
         if (Array.isArray(model)) {

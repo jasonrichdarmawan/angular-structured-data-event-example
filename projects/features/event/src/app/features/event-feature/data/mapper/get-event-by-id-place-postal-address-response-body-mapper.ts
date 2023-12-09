@@ -1,8 +1,8 @@
 import { PostalAddress } from "../../domain/entities/postal-address";
 import { GetEventByIdPlacePostalAddressResponseBody } from "../models/get-event-by-id-response-body";
 
-export class GetEventByIdPlacePostalAddressResponseBodyMapper {
-    static toPostalAddress(model: GetEventByIdPlacePostalAddressResponseBody): PostalAddress | undefined {
+export namespace GetEventByIdPlacePostalAddressResponseBodyMapper {
+    export function toPostalAddress(model: GetEventByIdPlacePostalAddressResponseBody): PostalAddress | undefined {
         if (
             model.streetAddress === undefined ||
             model.addressLocality === undefined ||

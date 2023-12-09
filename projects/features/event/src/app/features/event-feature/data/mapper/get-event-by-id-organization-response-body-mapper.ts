@@ -1,8 +1,8 @@
 import { Organization } from "../../domain/entities/organization";
 import { GetEventbyIdOrganizationResponseBody } from "../models/get-event-by-id-response-body";
 
-export class GetEventbyIdOrganizationResponseBodyMapper {
-    static toOrganization(model: GetEventbyIdOrganizationResponseBody): Organization | undefined {
+export namespace GetEventbyIdOrganizationResponseBodyMapper {
+    export function toOrganization(model: GetEventbyIdOrganizationResponseBody): Organization | undefined {
         if (
             model.name === undefined ||
             model.url === undefined
