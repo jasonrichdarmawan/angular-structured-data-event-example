@@ -34,6 +34,7 @@ export namespace GetEventByIdPlaceOrVirtualLocationMapper {
                   break;
                 }
                 default:
+                  console.warn(`failed to map model to domain: ${model}`);
                   break;
               }
             }
@@ -67,6 +68,7 @@ export namespace GetEventByIdPlaceOrVirtualLocationMapper {
               }
               
               default:
+                console.warn(`failed to map model to domain: ${model}`);
                 return undefined;
             }
           }

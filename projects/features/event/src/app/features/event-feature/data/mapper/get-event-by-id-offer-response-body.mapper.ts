@@ -75,7 +75,9 @@ export namespace GetEventByIdOfferResponseBodyMapper {
             case "https://schema.org/PreOrder":
                 result = model;
                 break;
-            default: return undefined
+            default:
+                console.warn(`failed to map model to domain: ${model}`)
+                return undefined
         }
 
         return result
