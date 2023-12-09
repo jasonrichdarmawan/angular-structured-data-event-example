@@ -8,10 +8,10 @@ npx firebase-tools deploy
 
 # Folder Structure
 
-`src` is Angular Application.
-`projects/common/pipes` is an Angular Library.
-`projects/features/experience` is an Angular Library.
-`projects/features/event` is an Angular Application.
+1. `src` is Angular Application.
+2. `projects/common/pipes` is an Angular Library.
+3. `projects/features/experience` is an Angular Library.
+4. `projects/features/event` is an Angular Application.
 
 # Clean Architecture
 
