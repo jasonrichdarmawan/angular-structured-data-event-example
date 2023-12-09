@@ -3,6 +3,12 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
+      "@common/pipes": [
+        "projects/common/pipes"
+      ],
+      "@common/pipes/*": [
+        "projects/common/pipes/*",
+      ],
       "@features/experience": [
         "projects/features/experience"
       ],

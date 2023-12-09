@@ -5,6 +5,13 @@ npx ng build --configuration production
 npx firebase-tools deploy
 ```
 
+# Folder Structure
+
+`src` is Angular Application.
+`projects/common/pipes` is an Angular Library.
+`projects/features/experience` is an Angular Library.
+`projects/features/event` is an Angular Application.
+
 # Clean Architecture
 
 Clean Architecture is a way to let back end do their stuff and front end also do their own stuff.

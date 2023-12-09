@@ -3,6 +3,12 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "paths": {
+      "@common/pipes": [
+        "dist/common/pipes"
+      ],
+      "@common/pipes/*": [
+        "dist/common/pipes/*"
+      ],
       "@features/experience": [
         "dist/features/experience"
       ],

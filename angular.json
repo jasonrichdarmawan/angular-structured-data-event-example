@@ -239,6 +239,37 @@
           }
         }
       }
+    },
+    "@common/pipes": {
+      "projectType": "library",
+      "root": "projects/common/pipes",
+      "sourceRoot": "projects/common/pipes/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/common/pipes/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/common/pipes/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/common/pipes/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/common/pipes/src/test.ts",
+            "tsConfig": "projects/common/pipes/tsconfig.spec.json",
+            "karmaConfig": "projects/common/pipes/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "topoint-org"
