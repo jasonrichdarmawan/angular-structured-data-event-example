@@ -3,7 +3,8 @@ import { EventData } from "../../domain/entities/event-data";
 import { EventStatusType } from "../../domain/entities/event-status-type";
 import { Offer } from "../../domain/entities/offer";
 import { Organization } from "../../domain/entities/organization";
-import { GetEventByIdResponseBody } from "../models/get-event-by-id-response-body";
+import { Person } from "../../domain/entities/person";
+import { GetEventByIdPersonResponseBody, GetEventByIdResponseBody } from "../models/get-event-by-id-response-body";
 import { GetEventByIdOfferResponseBodyMapper } from "./get-event-by-id-offer-response-body-mapper";
 import { GetEventbyIdOrganizationResponseBodyMapper } from "./get-event-by-id-organization-response-body-mapper";
 import { GetEventByIdPlaceOrVirtualLocationMapper } from "./get-event-by-id-place-or-virtual-location-mapper";
@@ -46,6 +47,11 @@ export namespace GetEventByIdResponseBodyMapper {
             organizer = GetEventbyIdOrganizationResponseBodyMapper.toOrganization(model.organizer);
         }
 
+        let performer: Person | undefined;
+        if (model.performer !== undefined) {
+            performer = toPerson(model.performer);
+        }
+
         let previousStartDate: string[] | undefined;
         if (model.previousStartDate !== undefined) {
             previousStartDate = toArray(model.previousStartDate);
@@ -73,6 +79,8 @@ export namespace GetEventByIdResponseBodyMapper {
             offers: offers,
 
             organizer: organizer,
+
+            performer: performer,
 
             previousStartDate: previousStartDate
         }
@@ -126,6 +134,18 @@ export namespace GetEventByIdResponseBodyMapper {
         }
 
         return result;
+    }
+
+    function toPerson(model: GetEventByIdPersonResponseBody): Person | undefined {
+        if (model.name === undefined) { 
+            console.warn(`failed to map model to domain: ${model}`);
+            return undefined
+        }
+
+        return {
+            "@type": "PerformingGroup",
+            name: model.name
+        }
     }
 
     function toArray(model: any | any[]): string[] {
