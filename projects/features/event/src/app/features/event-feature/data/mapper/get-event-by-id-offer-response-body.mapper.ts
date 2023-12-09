@@ -67,13 +67,13 @@ export namespace GetEventByIdOfferResponseBodyMapper {
 
         switch (model) {
             case "https://schema.org/InStock":
-                result = "https://schema.org/InStock"
+                result = model;
                 break;
             case "https://schema.org/SoldOut":
-                result = "https://schema.org/SoldOut"
+                result = model;
                 break;
             case "https://schema.org/PreOrder":
-                result = "https://schema.org/PreOrder"
+                result = model;
                 break;
             default: return undefined
         }
