@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { GetEventByIdService } from '../../../domain/usecases/get-event-by-id.service';
+import { GetEventByIdService } from '../../../domain/usecases/get-event-by-id/get-event-by-id.service';
 import { EventData } from '../../../domain/entities/event-data';
 import { Organization } from '../../../domain/entities/organization';
 import { Person } from '../../../domain/entities/person';
