@@ -30,7 +30,8 @@
               "src/favicon.ico",
               "src/assets",
               { "glob": "google52b4db4421e9a14d.html", "input": "src/static", "output": "/" },
-              { "glob": "sitemap.xml", "input": "src/static", "output": "/" }
+              { "glob": "sitemap.xml", "input": "src/static", "output": "/" },
+              { "glob": "robots.txt", "input": "src/static", "output": "/" }
             ],
             "styles": [
               "src/styles.scss"
