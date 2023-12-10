@@ -8,7 +8,7 @@ export class EventRemoteDataSourceService {
   constructor() {
     this.events = {}
 
-    let now = 1702036865913; // 2023-12-08T12:01:05.913Z
+    let now = 1702644353743; // 2023-12-15T12:45:53.743Z
 
     this.events["1"] = {
       id: "1",
@@ -100,7 +100,7 @@ export class EventRemoteDataSourceService {
       description: "The Adventures of Kesha and Macklemore is coming to Snickertown in a can't miss performance.",
 
       endDate: function(){
-        return new Date( now + (24 * 60 * 60 * 1000) ).toISOString()
+        return new Date( now + (48 * 60 * 60 * 1000) ).toISOString()
       }(),
 
       eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
