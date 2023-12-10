@@ -1,10 +1,32 @@
 # How to deploy to firebase
 
-```
-npm run build-library
-npx ng build --configuration production
-npx firebase-tools deploy
-```
+1. build the library
+    ```
+    npm run build-library
+    ```
+
+~~2. build the application~~
+    ```
+    npx ng build --configuration production
+    ```
+
+2. build the application
+    ```
+    npm run prerender
+    ```
+
+    note: There is no guarantee that Googlebot will crawl our website with JavaScript enabled. Our findings show that:
+    1. Googlebot may crawl your website with JavaScript enabled, and you can find the website's content on Google.
+    2. However, if Googlebot crawl your website again, it may crawl your website with JavaScript disabled. Consequently, you will not find the website's content on Google.
+
+    So, it is recommended to use SSR.
+
+    `npm run prerender` is only for development. It's not for production.
+
+3. deploy the application
+    ```
+    npx firebase-tools deploy
+    ```
 
 # Folder Structure
 

@@ -1,0 +1,9 @@
+/experiences
+/experience/1
+/experience/2
+/experience/3
+
+/events
+/event/1
+/event/2
+/event/3

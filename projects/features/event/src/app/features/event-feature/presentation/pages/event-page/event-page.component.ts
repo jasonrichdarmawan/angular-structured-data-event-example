@@ -4,8 +4,8 @@ import { GetEventByIdService } from '../../../domain/usecases/get-event-by-id/ge
 import { EventData } from '../../../domain/entities/event-data';
 import { Organization } from '../../../domain/entities/organization';
 import { Person } from '../../../domain/entities/person';
-import { Place } from '../../../domain/entities/place';;
-import { addEventDataToHead } from '../../../domain/usecases/add-event-data-to-head/add-event-data-to-head.util';
+import { Place } from '../../../domain/entities/place';
+import { AddEventDataToHeadService } from '../../../domain/usecases/add-event-data-to-head/add-event-data-to-head.service';
 @Component({
   selector: 'app-event-page',
   templateUrl: './event-page.component.html',
@@ -21,6 +21,7 @@ export class EventPageComponent implements OnInit {
   constructor(
     route: ActivatedRoute,
     getEventById: GetEventByIdService,
+    private addEventDataToHead: AddEventDataToHeadService,
   ) {
     let id = route.snapshot.paramMap.get("id") ?? undefined;
 
@@ -31,7 +32,7 @@ export class EventPageComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.eventData === undefined) { return undefined }
-    addEventDataToHead(this.eventData)
+    this.addEventDataToHead.call(this.eventData);
   }
 
 }
