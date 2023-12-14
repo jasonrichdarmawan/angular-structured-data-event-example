@@ -5,6 +5,6 @@ export interface Offer {
     availability: OfferAvailability;
     price: string;
     priceCurrency: string;
-    validFrom: string;
+    validFrom?: string;
     url: string;
 }
