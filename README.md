@@ -1,3 +1,16 @@
+# Know Issues and the Solution
+
+- [x] `npm run prerender` will cause 301 Redirect in Firebase Hosting
+
+      Solution add this to the `firebase.json` file
+      ```
+      {
+        "hosting": {
+          "trailingSlash": false
+        }
+      }
+      ```
+
 # How to deploy to firebase
 
 1. build the library
