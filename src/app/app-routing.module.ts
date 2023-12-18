@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { routes as eventRoutes } from 'projects/features/event/src/app/app-routing.module'
+import { routes as deviceTypeRoutes } from 'projects/features/device-type/src/app/app-routing.module';
 
 const routes: Routes = [
   {
@@ -17,7 +18,8 @@ const routes: Routes = [
     path: 'experience',
     loadChildren: () => import("@features/experience/presentation/pages/experience-page").then(m => m.ExperiencePageModule)
   },
-  ...eventRoutes
+  ...eventRoutes,
+  ...deviceTypeRoutes
 ];
 
 @NgModule({
