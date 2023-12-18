@@ -5,10 +5,11 @@ import { DeviceTypeRoutingModule } from './device-type-routing.module';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+  ],
   imports: [
     CommonModule,
     DeviceTypeRoutingModule
-  ]
+  ],
 })
 export class DeviceTypeModule { }

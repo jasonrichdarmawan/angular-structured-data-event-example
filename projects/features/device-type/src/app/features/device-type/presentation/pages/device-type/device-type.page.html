@@ -1,3 +1,10 @@
 <p>device-type works!</p>
-<app-desktop *ngIf="!isMobile"></app-desktop>
-<app-mobile *ngIf="isMobile"></app-mobile>
+<app-desktop *ngIf="deviceType === 'Desktop'"></app-desktop>
+<app-mobile *ngIf="deviceType === 'Mobile'"></app-mobile>
+<app-tablet *ngIf="deviceType === 'Tablet'"></app-tablet>
+
+<div>
+    <button (click)="count = count - 1">-</button>
+    <span>count: {{count}}</span>
+    <button (click)="count = count + 1">+</button>
+</div>
