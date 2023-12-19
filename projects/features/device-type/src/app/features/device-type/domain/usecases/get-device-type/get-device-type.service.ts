@@ -1,25 +1,33 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
+
+export const IS_SERVER = new InjectionToken<boolean>("IS_SERVER");
+export const USER_AGENT = new InjectionToken<string>("USER_AGENT");
+export const CLIENT_WIDTH = new InjectionToken<number>("CLIENT_WIDTH");
 
 export type DeviceType = "Desktop" | "Tablet" | "Mobile";
 
 @Injectable()
 export class GetDeviceTypeService {
   constructor(
+    @Inject(IS_SERVER) private isServer: boolean,
+    @Inject(USER_AGENT) private userAgent: string,
+    @Optional() @Inject(CLIENT_WIDTH) private clientWidth: number,
   ) {
+
   }
 
-  call(isServer: boolean, userAgent: string, clientWidth: number): DeviceType {
+  call(): DeviceType {
     console.log(`
       class: ${GetDeviceTypeService.name}
       function: ${this.call.name}
-      isServer: ${isServer}
-      userAgent: ${userAgent}
-      clientWidth: ${clientWidth}
+      isServer: ${this.isServer}
+      userAgent: ${this.userAgent}
+      clientWidth: ${this.clientWidth}
     `);
 
-    if (this.isDesktop(isServer, userAgent, clientWidth)) { return "Desktop" }
-    if (this.isTablet(isServer, userAgent, clientWidth)) { return "Tablet" }
-    if (this.isMobile(isServer, userAgent, clientWidth)) { return "Mobile" }
+    if (this.isDesktop()) { return "Desktop" }
+    if (this.isTablet()) { return "Tablet" }
+    if (this.isMobile()) { return "Mobile" }
 
     return "Desktop";
   }
@@ -30,17 +38,14 @@ export class GetDeviceTypeService {
    * Surface Pro 7 is a laptop.
    */
   private isDesktop(
-    isServer: boolean, 
-    userAgent: string, 
-    clientWidth: number,
   ): boolean {
-    if (isServer) {
-      if (userAgent.includes('Macintosh')) { return true }
-      if (userAgent.includes('Windows NT 10.0')) { return true }
+    if (this.isServer) {
+      if (this.userAgent.includes('Macintosh')) { return true }
+      if (this.userAgent.includes('Windows NT 10.0')) { return true }
       return false;
     }
 
-    if (clientWidth >= 1200) { return true; }
+    if (this.clientWidth >= 1200) { return true; }
 
     return false;
   }
@@ -52,19 +57,16 @@ export class GetDeviceTypeService {
    * MacBook Pro M2 is a laptop.
    */
   private isTablet(
-    isServer: boolean, 
-    userAgent: string,
-    clientWidth: number,
   ): boolean {
-    if (isServer) {
-      if (userAgent.includes('iPad')) { return true; }
+    if (this.isServer) {
+      if (this.userAgent.includes('iPad')) { return true; }
 
       return false;
     }
 
     if (
-      clientWidth >= 576 &&
-      clientWidth < 1200
+      this.clientWidth >= 576 &&
+      this.clientWidth < 1200
     ) { return true; }
 
     return false;
@@ -75,18 +77,15 @@ export class GetDeviceTypeService {
    * Meanwhile, Nest Hub is a tablet.
    */
   private isMobile(
-    isServer: boolean, 
-    userAgent: string,
-    clientWidth: number,
   ): boolean {
-    if (isServer) {
-      if (userAgent.includes('Android')) { return true }
-      if (userAgent.includes('iPhone')) { return true }
+    if (this.isServer) {
+      if (this.userAgent.includes('Android')) { return true }
+      if (this.userAgent.includes('iPhone')) { return true }
 
       return false;
     }
     
-    if (clientWidth < 576) { return true }
+    if (this.clientWidth < 576) { return true }
 
     return false;
   }
