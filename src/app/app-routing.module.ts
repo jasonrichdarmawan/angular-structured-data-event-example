@@ -19,7 +19,11 @@ const routes: Routes = [
     loadChildren: () => import("@features/experience/presentation/pages/experience-page").then(m => m.ExperiencePageModule)
   },
   ...eventRoutes,
-  ...deviceTypeRoutes
+  ...deviceTypeRoutes,
+  {
+    path: 'subdomain',
+    loadChildren: () => import("./features/subdomain/presentation/pages/subdomain/subdomain.module").then(m => m.SubdomainModule),
+  },
 ];
 
 @NgModule({
