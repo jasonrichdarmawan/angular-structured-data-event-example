@@ -22,8 +22,12 @@ const routes: Routes = [
   ...deviceTypeRoutes,
   {
     path: 'subdomain',
-    loadChildren: () => import("./features/subdomain/presentation/pages/subdomain/subdomain.module").then(m => m.SubdomainModule),
+    loadChildren: () => import("./features/subdomain/subdomain.module").then(m => m.SubdomainModule),
   },
+  {
+    path: 'input',
+    loadChildren: () => import("./features/input/input.module").then(m => m.InputModule)
+  }
 ];
 
 @NgModule({

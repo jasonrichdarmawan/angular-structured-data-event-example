@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { SubdomainRoutingModule } from './subdomain-routing.module';
 import { SubdomainPage } from './subdomain.page';
+import { SubdomainChildModule } from '../../components/subdomain-child/subdomain-child.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SubdomainPage } from './subdomain.page';
   ],
   imports: [
     CommonModule,
-    SubdomainRoutingModule
+    SubdomainRoutingModule,
+    SubdomainChildModule,
   ]
 })
 export class SubdomainModule { }
