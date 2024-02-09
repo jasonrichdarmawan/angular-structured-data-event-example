@@ -48,7 +48,7 @@ export class SubdomainPage implements OnInit {
     }
   }
 
-  async navigateToGitHub() {
+  async createAccountLinkThenNavigate() {
     const response = await this.createAccountLink({
       account: 'abcd',
       refresh_url: this.origin + "/404",
