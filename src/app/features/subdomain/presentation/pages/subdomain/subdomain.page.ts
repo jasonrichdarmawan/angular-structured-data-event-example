@@ -8,15 +8,18 @@ import { Component, Inject, OnInit } from '@angular/core';
 })
 export class SubdomainPage implements OnInit {
   hostname: string;
+  origin: string;
 
   constructor(
     @Inject(DOCUMENT) document: Document,
   ) {
     this.hostname = "";
+    this.origin = "";
   }
 
   ngOnInit(): void {
     this.hostname = document.location.hostname;
+    this.origin = document.location.origin;
   }
 
 }
