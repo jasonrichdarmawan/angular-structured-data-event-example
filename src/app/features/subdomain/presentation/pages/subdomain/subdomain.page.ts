@@ -13,13 +13,11 @@ export class SubdomainPage implements OnInit {
   constructor(
     @Inject(DOCUMENT) document: Document,
   ) {
-    this.hostname = "";
-    this.origin = "";
+    this.hostname = document.location.hostname;
+    this.origin = document.location.origin;
   }
 
   ngOnInit(): void {
-    this.hostname = document.location.hostname;
-    this.origin = document.location.origin;
   }
 
 }
