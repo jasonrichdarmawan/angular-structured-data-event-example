@@ -4,9 +4,9 @@
     <div class="form__bcbc">
         <p>Bank Code Branch Code</p>
         <span class="form__bcbc__input">
-            <input type="text" placeholder="Bank Code" [size]="bankCode.length" [(ngModel)]="bankCode"/>
+            <input type="text" placeholder="Bank Code" [attr.size]="bankCode.length !== 0 ? bankCode.length : null" [(ngModel)]="bankCode"/>
             <span>-</span>
-            <input type="text" placeholder="Branch Code" [size]="branchCode.length" [(ngModel)]="branchCode"/>
+            <input type="text" placeholder="Branch Code" [attr.size]="branchCode.length !== 0 ? branchCode.length : null" [(ngModel)]="branchCode"/>
         </span>
     </div>
 </div>
